@@ -190,6 +190,7 @@
         .bento-container {
             width: 100%;
             max-width: 1240px;
+            min-width: 0;
             display: grid;
             grid-template-columns: 360px 1fr;
             gap: 24px;
@@ -203,6 +204,8 @@
             gap: 20px;
             position: sticky;
             top: 96px;
+            min-width: 0;
+            width: 100%;
         }
 
         .card {
@@ -213,6 +216,8 @@
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
             transition: border-color 0.2s ease;
             position: relative;
+            min-width: 0;
+            width: 100%;
         }
 
         .card:hover {
@@ -344,10 +349,11 @@
         .telemetry-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: baseline;
+            gap: 10px;
             padding: 7px 0;
             border-bottom: 1px solid #101014;
-            font-size: 0.78rem;
+            font-size: 0.74rem;
             font-family: 'Fira Code', monospace;
         }
 
@@ -357,11 +363,14 @@
 
         .telemetry-label {
             color: var(--text-dim);
+            flex-shrink: 0;
         }
 
         .telemetry-val {
             color: var(--text-primary);
             font-weight: 500;
+            text-align: right;
+            word-break: break-word;
         }
 
         /* Core Stack Pills */
@@ -891,12 +900,12 @@
 
         @media (max-width: 580px) {
             body {
-                padding: 0 12px 60px 12px;
-                overflow-x: hidden;
+                padding: 0 14px 60px 14px;
+                max-width: 100vw;
             }
             .bento-container {
                 width: 100%;
-                overflow-x: hidden;
+                min-width: 0;
             }
             .navbar {
                 margin: 14px 0 20px 0;
@@ -907,9 +916,19 @@
                 display: none;
             }
             .card, .uptime-card, .terminal-deck {
-                padding: 18px 14px;
+                padding: 18px 16px;
                 width: 100%;
-                overflow-x: hidden;
+                min-width: 0;
+            }
+            .profile-bio {
+                font-size: 0.85rem;
+                line-height: 1.6;
+                word-break: break-word;
+                overflow-wrap: break-word;
+            }
+            .telemetry-row {
+                font-size: 0.68rem;
+                gap: 6px;
             }
             .terminal-header {
                 padding: 8px 12px;
