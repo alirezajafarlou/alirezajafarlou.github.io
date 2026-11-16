@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>health-api | Hardened Microservice Telemetry Engine</title>
+    <meta name="description" content="Technical specification, architecture, and live interactive API console for health-api: a hardened uptime monitoring microservice with PostgreSQL, Docker Compose, and strict SSRF defenses.">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../ALJ-1x-b.jpg">
+    <link rel="apple-touch-icon" href="../ALJ-1x-b.jpg">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="health-api | Architecture & Technical Spec">
+    <meta property="og:description" content="Production-grade uptime & latency monitoring engine with PostgreSQL persistence and SSRF mitigation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mr-alj.loc.cc/health-api/">
+    <meta property="og:image" content="../ALJ-1x-b.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* True OLED Monochrome Palette */
+            --oled-black: #000000;
+            --surface: #0a0a0c;
+            --surface-hover: #121215;
+            --surface-active: #18181d;
+            --border: #1e1e24;
+            --border-hover: #33333d;
+            --border-light: #484856;
+
+            --white: #ffffff;
+            --text-primary: #ededed;
+            --text-secondary: #c4c4c9;
+            --text-muted: #8e8e98;
+            --text-dim: #60606b;
+            --text-faint: #3e3e46;
+
+            --terminal-bg: #050507;
+            --terminal-bar: #0d0d10;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--oled-black);
+        }
+
+        body {
+            background-color: var(--oled-black);
+            background-image: 
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+            background-size: 32px 32px;
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            padding: 0 16px 80px 16px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        /* Top Breadcrumb & Actions */
+        .top-nav {
+            width: 100%;
+            max-width: 820px;
+            margin: 36px 0 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dim);
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--white);
+        }
+
+        .breadcrumb span {
+            color: var(--text-dim);
+        }
+
+        /* Header Hero */
+        .spec-hero {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 36px;
+            margin-bottom: 28px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .spec-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        .badge {
+            font-size: 0.68rem;
+            font-family: 'Fira Code', monospace;
+            color: var(--text-muted);
+            background: #0f0f12;
+            border: 1px solid var(--border);
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .badge-active {
+            color: var(--white);
+            border-color: var(--border-hover);
+        }
+
+        h1.project-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .project-tagline {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: #0f0f12;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn:hover {
+            background: var(--surface-hover);
+            border-color: var(--border-hover);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            border-color: #ffffff;
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: #e4e4e7;
+            border-color: #e4e4e7;
+            color: #000000;
+        }
+
+        /* Section Components */
+        .section-header {
+            margin: 40px 0 16px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: "//";
+            color: var(--text-dim);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        /* Interactive API Console */
+        .api-console {
+            background: var(--terminal-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+            font-family: 'Fira Code', monospace;
+            margin-bottom: 28px;
+        }
+
+        .console-header {
+            background: var(--terminal-bar);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .console-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .endpoint-selector {
+            background: #0f0f12;
+            border: 1px solid var(--border);
+            color: var(--white);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.78rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .endpoint-selector:focus {
+            border-color: var(--border-hover);
+        }
+
+        .send-btn {
+            background: #ffffff;
+            border: 1px solid #ffffff;
+            color: #000000;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .send-btn:hover {
+            background: #e4e4e7;
+        }
+
+        .console-body {
+            padding: 18px;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .console-meta {
+            display: flex;
+            gap: 16px;
+            padding-bottom: 12px;
+            margin-bottom: 14px;
+            border-bottom: 1px solid #16161c;
+            font-size: 0.74rem;
+            color: var(--text-dim);
+        }
+
+        .meta-status {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        pre.code-output {
+            background: transparent;
+            color: var(--text-primary);
+            overflow-x: auto;
+            white-space: pre;
+            line-height: 1.5;
+        }
+
+        /* Architecture Specs Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 640px) {
+            .specs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .spec-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .spec-title {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .spec-title::before {
+            content: "■";
+            font-size: 0.65rem;
+            color: var(--text-dim);
+        }
+
+        .spec-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #060608;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            color: var(--text-secondary);
+            margin: 12px 0;
+            line-height: 1.55;
+        }
+
+        .code-block .keyword { color: var(--white); font-weight: 600; }
+        .code-block .comment { color: var(--text-dim); }
+        .code-block .string { color: #d4d4d8; }
+
+        /* Table */
+        .api-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            font-family: 'Fira Code', monospace;
+            margin: 12px 0;
+        }
+
+        .api-table th {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dim);
+            font-weight: 500;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+        }
+
+        .api-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #141418;
+            color: var(--text-secondary);
+        }
+
+        .method {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            background: #141418;
+            border: 1px solid var(--border);
+            color: var(--white);
+        }
+
+        footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+            text-align: center;
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            font-family: 'Fira Code', monospace;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Breadcrumb -->
+    <nav class="top-nav">
+        <div class="breadcrumb">
+            <a href="../">mr-alj.loc.cc</a>
+            <span>/</span>
+            <span style="color: var(--white);">health-api</span>
+        </div>
+        <div>
+            <a href="https://github.com/alirezajafarlou/health-api" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none;">GitHub ↗</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <!-- Hero Header -->
+        <section class="spec-hero">
+            <div class="badge-row">
+                <span class="badge badge-active">PRODUCTION READY</span>
+                <span class="badge">DOCKER COMPOSE</span>
+                <span class="badge">POSTGRESQL 16</span>
+                <span class="badge">SSRF HARDENED</span>
+                <span class="badge">JEST CI</span>
+            </div>
+            
+            <h1 class="project-title">health-api</h1>
+            <p class="project-tagline">
+                Hardened HTTP/HTTPS telemetry engine built for reliable endpoint health probing, latency profiling, and historical state persistence with strict RFC 1918 private network isolation.
+            </p>
+
+            <div class="hero-actions">
+                <a href="https://github.com/alirezajafarlou/health-api" class="btn btn-primary" target="_blank" rel="noopener">
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Source Code
+                </a>
+                <a href="#console" class="btn">
+                    Interactive Console ↓
+                </a>
+                <a href="#quickstart" class="btn">
+                    Quickstart Guide ↓
+                </a>
+            </div>
+        </section>
+
+        <!-- Live Interactive API Console -->
+        <div class="section-header" id="console">
+            <h2 class="section-title">Interactive API Explorer</h2>
+            <span style="font-size: 0.72rem; color: var(--text-dim); font-family: 'Fira Code', monospace;">LIVE SIMULATION</span>
+        </div>
+
+        <section class="api-console">
+            <div class="console-header">
+                <div class="console-controls">
+                    <select id="endpoint-select" class="endpoint-selector">
+                        <option value="get-health">GET /health</option>
+                        <option value="get-targets">GET /api/targets</option>
+                        <option value="get-telemetry">GET /api/targets/1/telemetry</option>
+                        <option value="post-target-valid">POST /api/targets (Public URL)</option>
+                        <option value="post-target-ssrf">POST /api/targets (SSRF Attack Test)</option>
+                    </select>
+                    <button id="send-request" class="send-btn">Send Request</button>
+                </div>
+                <div style="font-size: 0.72rem; color: var(--text-dim);">HTTP/1.1 CLIENT</div>
+            </div>
+            <div class="console-body">
+                <div class="console-meta">
+                    <div>Status: <span id="res-status" class="meta-status">200 OK</span></div>
+                    <div>Latency: <span id="res-time" class="meta-status">18ms</span></div>
+                    <div>Server: <span class="meta-status">health-api/1.0</span></div>
+                </div>
+                <pre id="console-output" class="code-output"></pre>
+            </div>
+        </section>
+
+        <!-- Architecture & Hardening Breakdown -->
+        <div class="section-header">
+            <h2 class="section-title">System Architecture</h2>
+            <span style="font-size: 0.72rem; color: var(--text-dim); font-family: 'Fira Code', monospace;">CORE PILLARS</span>
+        </div>
+
+        <section class="specs-grid">
+            <div class="spec-item">
+                <div class="spec-title">SSRF Mitigation Engine</div>
+                <p class="spec-desc">
+                    Guards against internal network scanning by resolving hostnames pre-flight and rejecting RFC 1918 addresses (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, loopback 127.0.0.1, and link-local 169.254.169.254).
+                </p>
+            </div>
+
+            <div class="spec-item">
+                <div class="spec-title">PostgreSQL Persistence</div>
+                <p class="spec-desc">
+                    Normalized relational schema with foreign key constraints, connection pooling, and B-tree indexing on timestamps for zero-lag historical latency aggregation and SLA compliance calculations.
+                </p>
+            </div>
+
+            <div class="spec-item">
+                <div class="spec-title">Containerized Isolation</div>
+                <p class="spec-desc">
+                    Multi-stage Docker builds running under dedicated unprivileged non-root users. Uses explicit health checks and internal bridge networks to prevent unauthorized host-level socket exposure.
+                </p>
+            </div>
+
+            <div class="spec-item">
+                <div class="spec-title">Automated CI Test Suite</div>
+                <p class="spec-desc">
+                    Comprehensive integration and unit testing powered by Jest and Supertest. Every route, database query, and SSRF boundary is validated in automated GitHub Actions pipelines before merging.
+                </p>
+            </div>
+        </section>
+
+        <!-- SSRF Defense Mechanism Code -->
+        <div class="section-header">
+            <h2 class="section-title">Defense-in-Depth Implementation</h2>
+            <span style="font-size: 0.72rem; color: var(--text-dim); font-family: 'Fira Code', monospace;">SECURITY</span>
+        </div>
+
+        <div class="card">
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+                Traditional URL monitors are prime targets for Server-Side Request Forgery (SSRF). <code>health-api</code> inspects resolved IP addresses before any socket connection is initiated:
+            </p>
+            <div class="code-block">
+<span class="comment">// SSRF Validation Middleware: Resolves and checks against private ranges</span>
+<span class="keyword">function</span> validateTargetAddress(ip) {
+  <span class="keyword">const</span> isPrivate = 
+    ip.startsWith(<span class="string">'127.'</span>) ||             <span class="comment">// Loopback</span>
+    ip.startsWith(<span class="string">'10.'</span>) ||              <span class="comment">// RFC 1918 Class A</span>
+    ip.startsWith(<span class="string">'192.168.'</span>) ||         <span class="comment">// RFC 1918 Class C</span>
+    ip.startsWith(<span class="string">'169.254.'</span>) ||         <span class="comment">// Link-local / Cloud Metadata</span>
+    /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(ip); <span class="comment">// RFC 1918 Class B</span>
+
+  <span class="keyword">if</span> (isPrivate) {
+    <span class="keyword">throw new</span> Error(<span class="string">'BLOCKED_SSRF_PROHIBITED_IP_TARGET'</span>);
+  }
+}
+            </div>
+        </div>
+
+        <!-- API Reference Table -->
+        <div class="section-header">
+            <h2 class="section-title">API Reference</h2>
+            <span style="font-size: 0.72rem; color: var(--text-dim); font-family: 'Fira Code', monospace;">REST ENDPOINTS</span>
+        </div>
+
+        <div class="card" style="padding: 12px 18px; overflow-x: auto;">
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Description</th>
+                        <th>Response</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="method">GET</span></td>
+                        <td><code>/health</code></td>
+                        <td>Internal system and database health probe</td>
+                        <td><code>200 OK</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="method">GET</span></td>
+                        <td><code>/api/targets</code></td>
+                        <td>List all registered monitoring targets</td>
+                        <td><code>200 OK</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="method">POST</span></td>
+                        <td><code>/api/targets</code></td>
+                        <td>Register new URL (with pre-flight SSRF validation)</td>
+                        <td><code>201 Created</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="method">GET</span></td>
+                        <td><code>/api/targets/:id/telemetry</code></td>
+                        <td>Retrieve latency stats, uptime percentage & logs</td>
+                        <td><code>200 OK</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Quickstart Guide -->
+        <div class="section-header" id="quickstart">
+            <h2 class="section-title">Deployment & Quickstart</h2>
+            <span style="font-size: 0.72rem; color: var(--text-dim); font-family: 'Fira Code', monospace;">DOCKER COMPOSE</span>
+        </div>
+
+        <div class="card">
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+                Clone the repository and spin up both the API service and PostgreSQL database in an isolated Docker network:
+            </p>
+            <div class="code-block">
+<span class="comment"># 1. Clone the repository</span>
+git clone https://github.com/alirezajafarlou/health-api.git
+cd health-api
+
+<span class="comment"># 2. Launch production stack in background</span>
+docker compose up -d --build
+
+<span class="comment"># 3. Verify health status</span>
+curl http://localhost:3000/health
+<span class="comment"># Output: {"status":"healthy","database":"connected","timestamp":"2026-11-16T14:30:00.000Z"}</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div><a href="../">&larr; Return to mr-alj.loc.cc Command Center</a></div>
+            <div style="margin-top: 6px; color: var(--text-faint);">ALIREZA JAFARLOU &bull; health-api ENGINE</div>
+        </footer>
+
+    </main>
+
+    <!-- Interactive Console Logic -->
+    <script>
+        const endpointSelect = document.getElementById('endpoint-select');
+        const sendBtn = document.getElementById('send-request');
+        const resStatus = document.getElementById('res-status');
+        const resTime = document.getElementById('res-time');
+        const consoleOutput = document.getElementById('console-output');
+
+        const mockResponses = {
+            "get-health": {
+                status: "200 OK",
+                time: "14ms",
+                body: {
+                    status: "healthy",
+                    service: "health-api",
+                    version: "1.0.4",
+                    uptimeSeconds: 84920,
+                    database: {
+                        status: "connected",
+                        poolSize: 10,
+                        idleConnections: 8
+                    },
+                    timestamp: new Date().toISOString()
+                }
+            },
+            "get-targets": {
+                status: "200 OK",
+                time: "24ms",
+                body: {
+                    count: 3,
+                    targets: [
+                        {
+                            id: 1,
+                            name: "Root Command Center",
+                            url: "https://mr-alj.loc.cc",
+                            checkIntervalSeconds: 60,
+                            status: "UP",
+                            lastStatusCode: 200,
+                            lastLatencyMs: 38,
+                            uptime24h: "100.00%"
+                        },
+                        {
+                            id: 2,
+                            name: "GitHub API Gateway",
+                            url: "https://api.github.com",
+                            checkIntervalSeconds: 300,
+                            status: "UP",
+                            lastStatusCode: 200,
+                            lastLatencyMs: 62,
+                            uptime24h: "99.98%"
+                        },
+                        {
+                            id: 3,
+                            name: "ArvanCloud Edge DNS",
+                            url: "https://ns1.arvandns.ir",
+                            checkIntervalSeconds: 60,
+                            status: "UP",
+                            lastStatusCode: 200,
+                            lastLatencyMs: 22,
+                            uptime24h: "100.00%"
+                        }
+                    ]
+                }
+            },
+            "get-telemetry": {
+                status: "200 OK",
+                time: "32ms",
+                body: {
+                    targetId: 1,
+                    targetUrl: "https://mr-alj.loc.cc",
+                    sampleWindow: "24h",
+                    totalProbes: 1440,
+                    successfulProbes: 1440,
+                    availability: "100.000%",
+                    latency: {
+                        minMs: 28,
+                        avgMs: 36.4,
+                        p95Ms: 44.1,
+                        p99Ms: 49.8,
+                        maxMs: 52
+                    },
+                    recentChecks: [
+                        { timestamp: new Date(Date.now() - 60000).toISOString(), status: "UP", latencyMs: 35, code: 200 },
+                        { timestamp: new Date(Date.now() - 120000).toISOString(), status: "UP", latencyMs: 37, code: 200 },
+                        { timestamp: new Date(Date.now() - 180000).toISOString(), status: "UP", latencyMs: 34, code: 200 }
+                    ]
+                }
+            },
+            "post-target-valid": {
+                status: "201 Created",
+                time: "48ms",
+                body: {
+                    message: "Target successfully registered and queued for active monitoring",
+                    target: {
+                        id: 4,
+                        name: "Custom Edge Service",
+                        url: "https://edge.example.org",
+                        resolvedIp: "93.184.216.34",
+                        ssrfValidation: "PASSED (Public Address Space)",
+                        createdAt: new Date().toISOString()
+                    }
+                }
+            },
+            "post-target-ssrf": {
+                status: "400 Bad Request",
+                time: "9ms",
+                body: {
+                    error: "SECURITY_SSRF_VIOLATION",
+                    message: "Target address resolves to prohibited private network range",
+                    attemptedUrl: "http://169.254.169.254/latest/meta-data/",
+                    resolvedIp: "169.254.169.254",
+                    classification: "LINK_LOCAL_METADATA_PROHIBITED",
+                    action: "DROP_REQUEST_AND_AUDIT_LOG"
+                }
+            }
+        };
+
+        function renderConsole() {
+            const selected = endpointSelect.value;
+            const data = mockResponses[selected];
+
+            resStatus.textContent = data.status;
+            resTime.textContent = data.time;
+            consoleOutput.textContent = JSON.stringify(data.body, null, 2);
+        }
+
+        sendBtn.addEventListener('click', () => {
+            renderConsole();
+        });
+
+        endpointSelect.addEventListener('change', () => {
+            renderConsole();
+        });
+
+        // Initialize with default endpoint
+        renderConsole();
+    </script>
+</body>
+</html>

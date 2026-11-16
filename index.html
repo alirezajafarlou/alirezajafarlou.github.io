@@ -620,12 +620,12 @@ Type <span class="term-highlight">'help'</span> for diagnostics, or <span class=
         <section class="projects-grid">
             
             <!-- health-api card -->
-            <a href="https://github.com/alirezajafarlou/health-api" class="project-card" target="_blank" rel="noopener">
+            <a href="./health-api/" class="project-card">
                 <div class="card-top">
                     <span class="project-badge">ACTIVE PRODUCTION MICROSERVICE</span>
                     <div class="project-title">
                         <span>health-api</span>
-                        <span class="arrow">↗</span>
+                        <span class="arrow" style="font-family: 'Fira Code', monospace; font-size: 0.78rem;">SPEC &amp; CONSOLE &rarr;</span>
                     </div>
                     <p class="project-desc">
                         Hardened HTTP/HTTPS monitoring microservice. Features automated background health polling, PostgreSQL persistence, strict SSRF defense blocking RFC 1918 private probing, and automated CI test coverage.
@@ -792,12 +792,13 @@ Philosophy : Extreme ownership, deep engineering fundamentals, zero-trust infras
     Multi-AZ failover design, Anycast edge routing, and SLA/SLO telemetry.`,
 
             "health-api": () => `<span class="term-highlight">PROJECT SPEC: health-api</span>
-Repository : https://github.com/alirezajafarlou/health-api
-Stack      : Node.js, Express, PostgreSQL, Docker Compose, Jest
-Security   : SSRF Filtering (RFC 1918 private IPv4/IPv6 blocking, DNS rebind guard)
-Database   : Normalized schema tracking target URLs, HTTP latency, and status history
-Testing    : Automated integration & unit suites running under Jest in CI
-Deployment : Single-command reproducible spinup via 'docker compose up -d'`,
+Documentation: https://mr-alj.loc.cc/health-api/
+Repository   : https://github.com/alirezajafarlou/health-api
+Stack        : Node.js, Express, PostgreSQL, Docker Compose, Jest
+Security     : SSRF Filtering (RFC 1918 private IPv4/IPv6 blocking, DNS rebind guard)
+Database     : Normalized schema tracking target URLs, HTTP latency, and status history
+Testing      : Automated integration & unit suites running under Jest in CI
+Deployment   : Single-command reproducible spinup via 'docker compose up -d'`,
 
             contact: () => `Direct Communication Channels:
   • Telegram : <span class="term-highlight">https://t.me/alirezajafarlouwork</span>
