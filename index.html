@@ -3,46 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alireza Jafarlou | SRE & Cloud Infrastructure</title>
-    <meta name="description" content="Alireza Jafarlou - Site Reliability Engineer & Cloud Infrastructure Apprentice at Dropp Tempo. Linux systems, Docker microservices, Anycast DNS, and high-availability architecture.">
-    <meta name="theme-color" content="#09090b">
+    <title>Alireza Jafarlou | Site Reliability Engineer & Cloud Infrastructure</title>
+    <meta name="description" content="Alireza Jafarlou - Site Reliability Engineer specializing in Linux systems, Docker microservices, Anycast DNS, and high-availability cloud architecture.">
+    <meta name="theme-color" content="#000000">
     
-    <!-- Favicon using ALJ Monogram -->
+    <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="ALJ-1x-b.jpg">
     <link rel="apple-touch-icon" href="ALJ-1x-b.jpg">
 
-    <!-- Open Graph / Meta -->
-    <meta property="og:title" content="Alireza Jafarlou | SRE Command Center">
-    <meta property="og:description" content="Site Reliability Engineer & Cloud Infrastructure Apprentice @ Dropp Tempo. Hardened systems, microservices, and infrastructure telemetry.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Alireza Jafarlou | SRE & Cloud Infrastructure">
+    <meta property="og:description" content="Site Reliability Engineer. Hardened systems, microservices, and distributed cloud infrastructure.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mr-alj.loc.cc">
     <meta property="og:image" content="ALJ-1x-b.jpg">
 
-    <!-- Typography: Inter & JetBrains Mono -->
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Standard High-End Monochrome Palette */
-            --bg: #09090b;
-            --surface: #111114;
-            --surface-hover: #16161b;
-            --surface-active: #1c1c23;
-            --border: #27272a;
-            --border-hover: #3f3f46;
-            --border-light: #52525b;
+            /* True OLED Monochrome Architecture */
+            --oled-black: #000000;
+            --surface: #0a0a0c;
+            --surface-hover: #121215;
+            --border: #1e1e24;
+            --border-hover: #33333d;
+            --border-light: #484856;
             
             --white: #ffffff;
-            --text-primary: #f4f4f5;
-            --text-secondary: #d4d4d8;
-            --text-muted: #a1a1aa;
-            --text-dim: #71717a;
-            --text-faint: #52525b;
+            --text-primary: #ededed;
+            --text-secondary: #c4c4c9;
+            --text-muted: #8e8e98;
+            --text-dim: #60606b;
+            --text-faint: #3e3e46;
 
-            --terminal-bg: #0c0c0e;
-            --terminal-bar: #141417;
+            --terminal-bg: #050507;
+            --terminal-bar: #0d0d10;
         }
 
         * {
@@ -53,15 +52,15 @@
 
         html {
             scroll-behavior: smooth;
+            background-color: var(--oled-black);
         }
 
         body {
-            background-color: var(--bg);
+            background-color: var(--oled-black);
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.035) 0%, transparent 60%),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-            background-size: 100% 100%, 32px 32px, 32px 32px;
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+            background-size: 32px 32px;
             color: var(--text-primary);
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
@@ -78,17 +77,17 @@
             margin: 0 auto;
         }
 
-        /* Top Nav / Status Bar */
+        /* Top Status Bar */
         .top-status {
             width: 100%;
             max-width: 800px;
-            margin: 32px 0 20px 0;
+            margin: 36px 0 24px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--text-dim);
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
@@ -96,14 +95,13 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #141418;
+            background: #0d0d10;
             border: 1px solid var(--border);
             padding: 5px 12px;
             border-radius: 999px;
             color: var(--text-secondary);
             font-weight: 500;
             font-family: 'Fira Code', monospace;
-            font-size: 0.72rem;
         }
 
         .pulse-dot {
@@ -111,25 +109,24 @@
             height: 6px;
             background-color: var(--white);
             border-radius: 50%;
-            box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-            animation: pulse-mono 2.2s infinite ease-in-out;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.85);
+            animation: pulse-oled 2.4s infinite ease-in-out;
         }
 
-        @keyframes pulse-mono {
+        @keyframes pulse-oled {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(0.85); }
+            50% { opacity: 0.25; transform: scale(0.8); }
         }
 
         /* Hero Card */
         .hero {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 14px;
             padding: 36px;
             margin-bottom: 24px;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
             position: relative;
-            overflow: hidden;
         }
 
         .hero::before {
@@ -139,14 +136,14 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
         }
 
         .profile-header {
             display: flex;
             align-items: center;
             gap: 20px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .avatar-wrap {
@@ -157,33 +154,31 @@
         .avatar-logo {
             width: 72px;
             height: 72px;
-            border-radius: 16px;
+            border-radius: 14px;
             background: #000000;
             border: 1px solid var(--border-hover);
             object-fit: cover;
             display: block;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.7);
-            transition: border-color 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+            transition: border-color 0.2s ease;
         }
 
         .avatar-logo:hover {
             border-color: var(--border-light);
-            transform: scale(1.02);
         }
 
         .avatar-badge {
             position: absolute;
-            bottom: -6px;
+            bottom: -5px;
             right: -4px;
             background: #ffffff;
             color: #000000;
-            font-size: 0.58rem;
+            font-size: 0.55rem;
             font-family: 'Fira Code', monospace;
             font-weight: 800;
-            padding: 1px 6px;
-            border-radius: 4px;
+            padding: 1px 5px;
+            border-radius: 3px;
             letter-spacing: 0.05em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
         .name-role h1 {
@@ -199,15 +194,6 @@
             color: var(--text-secondary);
             font-weight: 500;
             font-family: 'Fira Code', monospace;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        .name-role .title span.company {
-            color: var(--text-dim);
-            font-weight: 400;
         }
 
         .bio-text {
@@ -222,45 +208,6 @@
             font-weight: 600;
         }
 
-        /* Memento Mori Telemetry */
-        .memento-bar {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 12px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 24px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.74rem;
-        }
-
-        .memento-header {
-            display: flex;
-            justify-content: space-between;
-            color: var(--text-dim);
-        }
-
-        .memento-header .highlight {
-            color: var(--text-secondary);
-        }
-
-        .memento-track {
-            height: 5px;
-            background: #1a1a20;
-            border-radius: 999px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .memento-fill {
-            width: 24.03%;
-            height: 100%;
-            background: linear-gradient(90deg, #71717a, #ffffff);
-            border-radius: 999px;
-        }
-
         .social-row {
             display: flex;
             gap: 10px;
@@ -268,18 +215,19 @@
         }
 
         .btn {
-            background: #141418;
+            background: #0f0f12;
             border: 1px solid var(--border);
             color: var(--text-secondary);
             padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.84rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
             font-weight: 500;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
         }
 
         .btn:hover {
@@ -306,10 +254,10 @@
         .terminal-deck {
             background: var(--terminal-bg);
             border: 1px solid var(--border);
-            border-radius: 14px;
+            border-radius: 12px;
             overflow: hidden;
             margin-bottom: 32px;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
             font-family: 'Fira Code', monospace;
         }
 
@@ -328,25 +276,25 @@
         }
 
         .dot {
-            width: 10px;
-            height: 10px;
+            width: 9px;
+            height: 9px;
             border-radius: 50%;
-            background: #27272a;
-            border: 1px solid #3f3f46;
+            background: #1c1c22;
+            border: 1px solid #2e2e38;
         }
 
         .terminal-title {
             color: var(--text-dim);
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             letter-spacing: 0.05em;
         }
 
         .terminal-body {
             padding: 18px;
-            min-height: 220px;
-            max-height: 380px;
+            min-height: 200px;
+            max-height: 360px;
             overflow-y: auto;
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             line-height: 1.6;
             color: var(--text-secondary);
         }
@@ -395,7 +343,7 @@
             outline: none;
             color: var(--white);
             font-family: 'Fira Code', monospace;
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             padding: 0;
             caret-color: var(--white);
         }
@@ -409,8 +357,8 @@
         }
 
         .section-title {
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 1.05rem;
+            font-weight: 600;
             color: var(--white);
             display: flex;
             align-items: center;
@@ -426,7 +374,7 @@
         }
 
         .section-subtitle {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--text-dim);
             font-family: 'Fira Code', monospace;
             letter-spacing: 0.05em;
@@ -449,22 +397,21 @@
         .project-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
+            border-radius: 10px;
+            padding: 22px;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.2s ease;
-            position: relative;
         }
 
         .project-card:hover {
             border-color: var(--border-hover);
             background: var(--surface-hover);
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
         }
 
         .card-top {
@@ -473,25 +420,25 @@
 
         .project-badge {
             display: inline-block;
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             font-family: 'Fira Code', monospace;
             color: var(--text-muted);
-            background: #141418;
+            background: #0f0f12;
             border: 1px solid var(--border);
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-bottom: 12px;
+            padding: 2px 7px;
+            border-radius: 3px;
+            margin-bottom: 10px;
             letter-spacing: 0.04em;
         }
 
         .project-title {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--white);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .project-title .arrow {
@@ -505,7 +452,7 @@
         }
 
         .project-desc {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
             line-height: 1.6;
         }
@@ -514,16 +461,16 @@
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-top: 16px;
+            margin-top: 14px;
         }
 
         .tag {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             color: var(--text-dim);
-            background: #141417;
+            background: #0c0c0e;
             border: 1px solid var(--border);
-            padding: 2px 8px;
-            border-radius: 4px;
+            padding: 2px 7px;
+            border-radius: 3px;
             font-family: 'Fira Code', monospace;
         }
 
@@ -531,16 +478,16 @@
         .stack-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 40px;
         }
 
         .stack-item {
             background: var(--surface);
             border: 1px solid var(--border);
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
             font-family: 'Fira Code', monospace;
             color: var(--text-secondary);
             display: flex;
@@ -568,7 +515,7 @@
             gap: 8px;
             align-items: center;
             text-align: center;
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             color: var(--text-dim);
             font-family: 'Fira Code', monospace;
         }
@@ -590,10 +537,10 @@
     <header class="top-status">
         <div class="status-pill">
             <span class="pulse-dot"></span>
-            <span>NODE: EDGE-01 // OPERATIONAL</span>
+            <span>NODE: EDGE-01 // PRODUCTION</span>
         </div>
         <div style="font-family: 'Fira Code', monospace;">
-            TLS 1.3 ACTIVE
+            TLS 1.3 // ANYCAST
         </div>
     </header>
 
@@ -609,42 +556,30 @@
                 <div class="name-role">
                     <h1>Alireza Jafarlou</h1>
                     <div class="title">
-                        SRE & Cloud Infrastructure Apprentice 
-                        <span class="company">@ Dropp Tempo</span>
+                        Site Reliability & Cloud Infrastructure Engineer
                     </div>
                 </div>
             </div>
 
             <p class="bio-text">
-                19-year-old self-taught Site Reliability Engineer. Focused on <strong>Linux internals</strong>, <strong>high-availability cloud architecture</strong>, <strong>automated microservice telemetry</strong>, and <strong>Anycast edge routing</strong>. Committed to a 40-year vision of engineering foundational distributed systems.
+                Engineering high-availability distributed systems, <strong>Linux kernel automation</strong>, <strong>hardened microservice architectures</strong>, and <strong>Anycast edge networks</strong>. Focused on fault-tolerant infrastructure, automated telemetry, and zero-trust security.
             </p>
-
-            <!-- Life Telemetry / Stoic Pulse -->
-            <div class="memento-bar">
-                <div class="memento-header">
-                    <span>MEMENTO MORI // LIFE TELEMETRY</span>
-                    <span class="highlight">WEEK 1,000 OF 4,160 [24.0%]</span>
-                </div>
-                <div class="memento-track">
-                    <div class="memento-fill"></div>
-                </div>
-            </div>
 
             <div class="social-row">
                 <a href="https://github.com/alirezajafarlou" class="btn btn-primary" target="_blank" rel="noopener">
-                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                     GitHub
                 </a>
                 <a href="https://t.me/alirezajafarlouwork" class="btn" target="_blank" rel="noopener">
-                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.971z"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.971z"/></svg>
                     Telegram
                 </a>
                 <a href="https://linkedin.com/in/alirezajafarlou" class="btn" target="_blank" rel="noopener">
-                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
                 </a>
                 <a href="mailto:alirezajafarlou.work@gmail.com" class="btn">
-                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     Email
                 </a>
             </div>
@@ -659,14 +594,14 @@
                     <span class="dot"></span>
                 </div>
                 <div class="terminal-title">mr_alj@toughbook: ~ (zsh)</div>
-                <div style="font-size: 0.7rem; color: var(--text-dim);">INTERACTIVE SRE SHELL</div>
+                <div style="font-size: 0.68rem; color: var(--text-dim);">SRE SHELL</div>
             </div>
             <div class="terminal-body" id="term-body">
                 <div class="term-line">
 <span class="term-dim">┌──(</span><span class="term-prompt">mr_alj㉿toughbook</span><span class="term-dim">)-[</span><span class="term-highlight">~</span><span class="term-dim">]</span>
 <span class="term-dim">└─$</span> <span class="term-cmd">motd</span>
-Welcome to <span class="term-highlight">Alireza Jafarlou's</span> SRE Command Center.
-Type <span class="term-highlight">'help'</span> to inspect diagnostics, or <span class="term-highlight">'neofetch'</span> for host telemetry.
+Welcome to <span class="term-highlight">Alireza Jafarlou's</span> SRE Terminal.
+Type <span class="term-highlight">'help'</span> for diagnostics, or <span class="term-highlight">'neofetch'</span> for host telemetry.
                 </div>
                 <div id="term-history"></div>
                 <div class="terminal-input-row">
@@ -679,7 +614,7 @@ Type <span class="term-highlight">'help'</span> to inspect diagnostics, or <span
         <!-- Featured Projects -->
         <div class="section-header">
             <h2 class="section-title">Production Systems</h2>
-            <span class="section-subtitle">PROJECTS & REPOSITORIES</span>
+            <span class="section-subtitle">PROJECTS & ARCHITECTURE</span>
         </div>
 
         <section class="projects-grid">
@@ -693,7 +628,7 @@ Type <span class="term-highlight">'help'</span> to inspect diagnostics, or <span
                         <span class="arrow">↗</span>
                     </div>
                     <p class="project-desc">
-                        Hardened HTTP/HTTPS monitoring microservice. Features automated background health checks, PostgreSQL persistence, strict SSRF defense blocking private IP probing, and automated Jest test coverage.
+                        Hardened HTTP/HTTPS monitoring microservice. Features automated background health polling, PostgreSQL persistence, strict SSRF defense blocking RFC 1918 private probing, and automated CI test coverage.
                     </p>
                 </div>
                 <div class="tech-tags">
@@ -714,7 +649,7 @@ Type <span class="term-highlight">'help'</span> to inspect diagnostics, or <span
                         <span class="arrow">↗</span>
                     </div>
                     <p class="project-desc">
-                        100-year lifetime domain deployed with PowerDNS LUA CNAME flattening at zone apex, Anycast edge propagation, automated Let's Encrypt TLS 1.3 provisioning, and sub-50ms static edge delivery.
+                        High-availability apex domain deployed with PowerDNS LUA CNAME flattening, Anycast edge propagation, automated Let's Encrypt TLS 1.3 provisioning, and sub-50ms static edge distribution.
                     </p>
                 </div>
                 <div class="tech-tags">
@@ -725,43 +660,43 @@ Type <span class="term-highlight">'help'</span> to inspect diagnostics, or <span
                 </div>
             </a>
 
-            <!-- SRE Lab card -->
+            <!-- Cloud Architecture Track -->
             <div class="project-card" style="cursor: default;">
                 <div class="card-top">
-                    <span class="project-badge">ACADEMY & DRILLS</span>
+                    <span class="project-badge">CLOUD SYSTEMS ARCHITECTURE</span>
                     <div class="project-title">
-                        <span>ArvanCloud Certified Track</span>
-                        <span class="arrow" style="color: var(--white);">100%</span>
+                        <span>Distributed Cloud Design</span>
+                        <span class="arrow" style="color: var(--white);">PROD</span>
                     </div>
                     <p class="project-desc">
-                        Completed Foundational Cloud Practitioner modules with 100% examination marks. Mastered IaaS/PaaS/SaaS separation, Anycast CDN architecture, multi-AZ high availability, and Disaster Recovery SLAs.
+                        Architecture specifications covering IaaS/PaaS boundaries, Anycast CDN networks, multi-AZ high availability clusters, and Disaster Recovery SLA / SLO modeling (RTO &lt; 15m, RPO &lt; 5m).
                     </p>
                 </div>
                 <div class="tech-tags">
                     <span class="tag">IaaS / PaaS</span>
                     <span class="tag">Anycast CDN</span>
-                    <span class="tag">SLA / RTO / RPO</span>
-                    <span class="tag">Cloud Architecture</span>
+                    <span class="tag">HA / Multi-AZ</span>
+                    <span class="tag">DR & SLAs</span>
                 </div>
             </div>
 
-            <!-- Dropp Tempo SRE Lab -->
+            <!-- Linux Kernel & System Observability -->
             <div class="project-card" style="cursor: default;">
                 <div class="card-top">
-                    <span class="project-badge">STAGE 0.5 APPRENTICESHIP</span>
+                    <span class="project-badge">SYSTEMS OBSERVABILITY</span>
                     <div class="project-title">
-                        <span>Dropp Tempo Lab</span>
+                        <span>Linux Infrastructure Telemetry</span>
                         <span class="arrow" style="color: var(--white);">ACTIVE</span>
                     </div>
                     <p class="project-desc">
-                        Engineering automated cloud-native infrastructure, system observability, and Linux systemd telemetry as part of the official Dropp Technology DevOps-as-a-Service pipeline under direct mentorship.
+                        Automated systemd daemon management, POSIX resource monitoring, hardened socket hygiene, process isolation, and centralized metric collection pipelines across bare-metal workstations.
                     </p>
                 </div>
                 <div class="tech-tags">
                     <span class="tag">Linux Kernel</span>
                     <span class="tag">systemd</span>
-                    <span class="tag">Observability</span>
-                    <span class="tag">Dropp Tempo</span>
+                    <span class="tag">Bash / Zsh</span>
+                    <span class="tag">Telemetry</span>
                 </div>
             </div>
 
@@ -787,9 +722,8 @@ Type <span class="term-highlight">'help'</span> to inspect diagnostics, or <span
 
         <!-- Footer -->
         <footer>
-            <div>ALIREZA JAFARLOU &bull; HOSTED AT <a href="https://mr-alj.loc.cc">mr-alj.loc.cc</a></div>
-            <div>Built with zero runtime bloat &bull; Pure Vanilla HTML / CSS / JS &bull; 100/100 Lighthouse Performance</div>
-            <div style="color: var(--text-faint); margin-top: 6px;">DNS Validated 2026 &bull; Domain Lease Active to 2126</div>
+            <div>ALIREZA JAFARLOU &bull; <a href="https://mr-alj.loc.cc">mr-alj.loc.cc</a></div>
+            <div>Pure Vanilla HTML / CSS / JS &bull; 100/100 Lighthouse Performance &bull; High-Availability Edge</div>
         </footer>
 
     </main>
@@ -804,29 +738,25 @@ Type <span class="term-highlight">'help'</span> to inspect diagnostics, or <span
         let cmdHistory = [];
         let historyIndex = -1;
 
-        // Click deck to focus input
         deck.addEventListener('click', () => {
             input.focus();
         });
 
         const commands = {
             help: () => `Available diagnostics and shell commands:
-  <span class="term-highlight">whoami</span>       - Display identity, role & 40-year trajectory
+  <span class="term-highlight">whoami</span>       - Display identity, role & focus
   <span class="term-highlight">neofetch</span>     - SRE system hardware & OS telemetry
   <span class="term-highlight">skills</span>       - Breakdown of technical competencies
   <span class="term-highlight">projects</span>     - Production repositories & architectures
   <span class="term-highlight">health-api</span>   - Deep-dive spec of hardened monitoring microservice
-  <span class="term-highlight">cert</span>         - ArvanCloud Academy examination results
-  <span class="term-highlight">memento</span>      - Stoic philosophy & life calibration
-  <span class="term-highlight">contact</span>      - Reach Alireza directly (Telegram/Email)
+  <span class="term-highlight">contact</span>      - Communication channels
   <span class="term-highlight">clear</span>        - Clear terminal screen buffer`,
 
             whoami: () => `ALIREZA JAFARLOU (mr_alj)
-Role       : Site Reliability Engineer & Cloud Infrastructure Apprentice
-Affiliation: Dropp Tempo (شرکت دانش رایانه پارمیس)
-Age        : 19 | Based in Iran
-Philosophy : Stoicism & extreme ownership. Zero excuses, deep engineering fundamentals.
-Trajectory : Building resilient cloud infrastructure and foundational systems over a 40-year horizon.`,
+Role       : Site Reliability & Cloud Infrastructure Engineer
+Location   : Iran
+Focus      : Distributed Systems, High Availability, Linux Kernel, Network Security
+Philosophy : Extreme ownership, deep engineering fundamentals, zero-trust infrastructure.`,
 
             neofetch: () => `<span class="term-highlight">       /\\         mr_alj@toughbook</span>
 <span class="term-highlight">      /  \\        ----------------</span>
@@ -835,9 +765,8 @@ Trajectory : Building resilient cloud infrastructure and foundational systems ov
 <span class="term-highlight">   /   ,,   \\     Kernel</span>  : Linux 6.x hardened SRE workstation
 <span class="term-highlight">  /   |  |  -\\    Shell</span>   : zsh 5.9 + Starship
 <span class="term-highlight"> /_-''    ''-_\\   WM</span>      : Wayland / Hyprland
-<span class="term-dim">                  Affil</span>   : Dropp Tempo (DevOps-as-a-Service)
-<span class="term-dim">                  Domain</span>  : mr-alj.loc.cc (Active through 2126)
-<span class="term-dim">                  Uptime</span>  : 1,000 weeks / 4,160 weeks (24.0%)`,
+<span class="term-dim">                  Domain</span>  : mr-alj.loc.cc
+<span class="term-dim">                  Status</span>  : All Services Nominal`,
 
             skills: () => `[1] SYSTEMS & HARDENING
     • Linux Kernel Internals, systemd services, POSIX, Bash/Zsh automation.
@@ -859,8 +788,8 @@ Trajectory : Building resilient cloud infrastructure and foundational systems ov
 [2] <span class="term-highlight">mr-alj.loc.cc</span> (github.com/alirezajafarlou/alirezajafarlou.github.io)
     High-availability static edge command center running on Anycast DNS.
 
-[3] <span class="term-highlight">Dropp Tempo SRE Infrastructure</span>
-    DevOps-as-a-Service automation and enterprise cloud practitioner drills.`,
+[3] <span class="term-highlight">Distributed Cloud Architecture</span>
+    Multi-AZ failover design, Anycast edge routing, and SLA/SLO telemetry.`,
 
             "health-api": () => `<span class="term-highlight">PROJECT SPEC: health-api</span>
 Repository : https://github.com/alirezajafarlou/health-api
@@ -869,20 +798,6 @@ Security   : SSRF Filtering (RFC 1918 private IPv4/IPv6 blocking, DNS rebind gua
 Database   : Normalized schema tracking target URLs, HTTP latency, and status history
 Testing    : Automated integration & unit suites running under Jest in CI
 Deployment : Single-command reproducible spinup via 'docker compose up -d'`,
-
-            cert: () => `<span class="term-highlight">ARVANCLOUD ACADEMY TRACK (100h Curriculum):</span>
-  • Chapter 1: Journey to the Cloud          [<span class="term-highlight">100% PASSED</span>]
-  • Chapter 2: What is Cloud Computing       [<span class="term-highlight">100% PASSED</span>]
-  • Chapter 3: Cloud Security & DR           [<span class="term-dim">IN PROGRESS</span>]
-Verified credentials covering Anycast routing, IaaS/PaaS stacks, and DR SLAs.`,
-
-            memento: () => `<span class="term-dim">"You could leave life right now. Let that determine what you do and say and think."</span>
-  — Marcus Aurelius, Meditations 2.11
-
-Elapsed : 1,000 weeks
-Target  : 4,160 weeks (~80 years)
-Status  : Phase 0.5 (Apprenticeship & Foundation)
-Directive: Master the fundamentals. Build without shortcuts.`,
 
             contact: () => `Direct Communication Channels:
   • Telegram : <span class="term-highlight">https://t.me/alirezajafarlouwork</span>
@@ -905,13 +820,11 @@ Directive: Master the fundamentals. Build without shortcuts.`,
                     cmdHistory.push(rawCmd);
                     historyIndex = cmdHistory.length;
 
-                    // Append user line
                     const line = document.createElement('div');
                     line.className = 'term-line';
                     line.innerHTML = `<span class="term-dim">└─$</span> <span class="term-cmd">${escapeHtml(rawCmd)}</span>`;
                     historyDiv.appendChild(line);
 
-                    // Execute
                     if (commands[cmd]) {
                         const out = commands[cmd]();
                         if (out) {
@@ -925,7 +838,7 @@ Directive: Master the fundamentals. Build without shortcuts.`,
                     } else {
                         const errDiv = document.createElement('div');
                         errDiv.className = 'term-line term-out';
-                        errDiv.innerHTML = `<span style="color: #a1a1aa;">zsh: command not found: ${escapeHtml(rawCmd)}</span>. Type <span class="term-highlight">'help'</span> for list of commands.`;
+                        errDiv.innerHTML = `<span style="color: #8e8e98;">zsh: command not found: ${escapeHtml(rawCmd)}</span>. Type <span class="term-highlight">'help'</span> for list of commands.`;
                         historyDiv.appendChild(errDiv);
                     }
 
