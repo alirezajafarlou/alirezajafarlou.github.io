@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alireza Jafarlou | DevOps & Cloud</title>
+    <style>
+        :root {
+            --bg: #09090b;
+            --card-bg: #121215;
+            --border: #27272a;
+            --text-primary: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --accent: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; }
+        body { background-color: var(--bg); color: var(--text-primary); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; width: 100%; max-width: 520px; padding: 36px; box-shadow: 0 8px 30px rgba(0,0,0,0.8); }
+        .monogram { width: 56px; height: 56px; border-radius: 50%; background: #000; border: 1px solid #3f3f46; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; font-style: italic; margin-bottom: 20px; }
+        h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+        .subtitle { font-size: 0.85rem; color: #71717a; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; font-weight: 600; }
+        p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; }
+        .project-box { background: #0c0c0e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 24px; text-decoration: none; display: block; color: inherit; transition: border-color 0.2s; }
+        .project-box:hover { border-color: #52525b; }
+        .project-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; display: flex; justify-content: space-between; }
+        .project-desc { font-size: 0.82rem; color: var(--text-muted); }
+        .links { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn { background: #18181b; border: 1px solid var(--border); color: var(--text-primary); padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; text-decoration: none; font-weight: 500; transition: background 0.2s; }
+        .btn:hover { background: #27272a; }
+        .footer { font-size: 0.72rem; color: #52525b; margin-top: 28px; text-transform: uppercase; letter-spacing: 0.15em; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="monogram">alj</div>
+        <h1>Alireza Jafarlou</h1>
+        <div class="subtitle">DevOps & Cloud Infrastructure Apprentice</div>
+        <p>Building high-availability systems, Linux kernel automation, and cloud-native monitoring infrastructure.</p>
+        
+        <a href="https://github.com/alirezajafarlou/health-api" class="project-box" target="_blank">
+            <div class="project-title">
+                <span>health-api</span>
+                <span style="color: #71717a;">↗</span>
+            </div>
+            <div class="project-desc">Hardened HTTP/HTTPS monitoring microservice with PostgreSQL persistence, SSRF protection & Docker.</div>
+        </a>
+
+        <div class="links">
+            <a href="https://github.com/alirezajafarlou" class="btn" target="_blank">GitHub</a>
+            <a href="https://t.me/alirezajafarlouwork" class="btn" target="_blank">Telegram</a>
+            <a href="https://linkedin.com/in/alirezajafarlou" class="btn" target="_blank">LinkedIn</a>
+        </div>
+
+        <div class="footer">Memento Mori • Phase 0.5</div>
+    </div>
+</body>
+</html>
