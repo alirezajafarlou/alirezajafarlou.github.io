@@ -15,7 +15,7 @@ High-availability personal infrastructure portal and engineering command deck fo
 * **GitOps Edge Delivery:** Automated continuous deployment directly from Git push to worldwide Fastly/GitHub edge nodes with sub-30ms global latency.
 * **Automated Cloudflare DNS:** Configured upstream via open-source PR `#61608` on `is-a-dev/register` targeting `alirezajafarlou.github.io`.
 * **OLED Monochrome Design Language:** Pure pitch black (`#000000`) canvas engineered for maximum contrast, modern minimalism, and zero visual bloat.
-* **Interactive DevOps Shell:** Client-side terminal with persistent command history (`↑` / `↓`), simulated container fleet diagnostics (`docker-ps`), multi-stage CI/CD inspection (`pipeline`), and host telemetry (`neofetch`).
+* **Interactive DevOps Shell:** Client-side terminal with persistent command history (`↑` / `↓`), simulated container fleet diagnostics (`docker-ps`), multi-stage CI/CD inspection (`pipeline`), and host telemetry (`fastfetch`).
 * **Zero Runtime Overhead:** 100% pure vanilla HTML5, CSS3, and modern JavaScript. Zero bundlers, zero npm dependencies, and instantaneous initial paint.
 
 ---

@@ -1261,7 +1261,7 @@
                         <span class="dot"></span>
                     </div>
                     <div class="terminal-quick-actions">
-                        <button class="quick-cmd-btn" data-cmd="neofetch">neofetch</button>
+                        <button class="quick-cmd-btn" data-cmd="fastfetch">fastfetch</button>
                         <button class="quick-cmd-btn" data-cmd="docker-ps">docker-ps</button>
                         <button class="quick-cmd-btn" data-cmd="pipeline">pipeline</button>
                         <button class="quick-cmd-btn" data-cmd="stack">stack</button>
@@ -1274,7 +1274,7 @@
 <span class="term-dim">┌──(</span><span class="term-prompt">mr_alj㉿toughbook</span><span class="term-dim">)-[</span><span class="term-highlight">~</span><span class="term-dim">]</span>
 <span class="term-dim">└─$</span> <span class="term-cmd">motd</span>
 Welcome to <span class="term-highlight">Alireza Jafarlou's</span> DevOps Shell.
-Interactive mode active. Click any pill above or run <span class="term-highlight">'docker-ps'</span>, <span class="term-highlight">'pipeline'</span>, or <span class="term-highlight">'neofetch'</span>.
+Interactive mode active. Click any pill above or run <span class="term-highlight">'docker-ps'</span>, <span class="term-highlight">'pipeline'</span>, or <span class="term-highlight">'fastfetch'</span>.
                     </div>
                     <div id="term-history"></div>
                     <div class="terminal-input-row">
@@ -1373,9 +1373,9 @@ Interactive mode active. Click any pill above or run <span class="term-highlight
                     <span class="cmd-item-shortcut">/health-api/</span>
                 </div>
                 <div class="cmd-group-label">DevOps Terminal Commands</div>
-                <div class="cmd-item" data-action="exec-neofetch">
-                    <span>Run neofetch (Workstation Telemetry)</span>
-                    <span class="cmd-item-shortcut">neofetch</span>
+                <div class="cmd-item" data-action="exec-fastfetch">
+                    <span>Run fastfetch (Workstation Telemetry)</span>
+                    <span class="cmd-item-shortcut">fastfetch</span>
                 </div>
                 <div class="cmd-item" data-action="exec-docker">
                     <span>Run docker-ps (Inspect Active Containers)</span>
@@ -1450,7 +1450,7 @@ Interactive mode active. Click any pill above or run <span class="term-highlight
   <span class="term-highlight">whoami</span>       - Engineer identity, focus & core philosophy
   <span class="term-highlight">docker-ps</span>    - Inspect active microservice container fleet
   <span class="term-highlight">pipeline</span>     - Inspect multi-stage CI/CD delivery lifecycle
-  <span class="term-highlight">neofetch</span>     - Host workstation hardware & OS telemetry
+  <span class="term-highlight">fastfetch</span>    - Host workstation hardware & OS telemetry (alias: neofetch)
   <span class="term-highlight">stack</span>        - Breakdown of DevOps toolchain & competencies
   <span class="term-highlight">projects</span>     - Production repositories & architecture specs
   <span class="term-highlight">health-api</span>   - Deep-dive spec of hardened monitoring microservice
@@ -1481,7 +1481,7 @@ Philosophy : If it's done twice manually, automate it once cleanly. Zero fluff, 
 
 <span class="term-dim">Pipeline Result: SUCCESS // All automated gates nominal</span>`,
 
-            neofetch: () => `<div class="neofetch-wrapper">
+            fastfetch: () => `<div class="neofetch-wrapper">
 <div class="neofetch-logo">      /\\
      /  \\
     /\\   \\
@@ -1501,6 +1501,8 @@ Philosophy : If it's done twice manually, automate it once cleanly. Zero fluff, 
   <div class="nf-row"><span class="nf-label">Uptime</span><span class="nf-val">: 99.998% // All nominal</span></div>
 </div>
 </div>`,
+
+            neofetch: () => commands.fastfetch(),
 
             stack: () => `[1] CONTAINERS & RUNTIMES
     • Docker, Docker Compose multi-stage builds, non-root Alpine isolation.
@@ -1682,8 +1684,8 @@ Status       : Active & Valid (Zero SSL Warnings)`,
 
             if (action === 'goto-health') {
                 window.location.href = './health-api/';
-            } else if (action === 'exec-neofetch') {
-                executeCommand('neofetch');
+            } else if (action === 'exec-fastfetch' || action === 'exec-neofetch') {
+                executeCommand('fastfetch');
             } else if (action === 'exec-docker') {
                 executeCommand('docker-ps');
             } else if (action === 'exec-pipeline') {
