@@ -36,18 +36,10 @@ High-availability personal infrastructure portal and engineering command deck fo
 
 ## 🛠️ Featured Systems & Submodules
 
-### 1. [health-api](https://github.com/alirezajafarlou/health-api)
+### [health-api](https://github.com/alirezajafarlou/health-api)
 * **Live Specification & Console:** [mr-alj.is-a.dev/health-api/](https://mr-alj.is-a.dev/health-api/)
 * **Stack:** Node.js, Express, PostgreSQL 16, Docker Compose, Jest CI
 * **Highlights:** Hardened background polling engine with PostgreSQL persistence and strict RFC 1918 SSRF mitigation (blocks private IP ranges, loopback, and cloud metadata endpoints).
-
-### 2. [GitOps Static Edge](https://mr-alj.is-a.dev)
-* **Stack:** GitHub Actions, Cloudflare DNS, Automated Let's Encrypt TLS 1.3
-* **Highlights:** Edge-cached static distribution with automated certificate lifecycle management and 100/100 Lighthouse performance.
-
-### 3. Dedicated Cloud IaaS Node (`intern-alireza-jafarlou`)
-* **Stack:** Ubuntu Server (Kernel 7.x), OpenStack KVM, UFW, systemd
-* **Highlights:** 4 vCPU / 8 GB RAM cloud instance on ArvanCloud IaaS. Hardened with non-root privilege separation (`alj`), key-only SSH authentication, and UFW ingress firewall policies.
 
 ---
 

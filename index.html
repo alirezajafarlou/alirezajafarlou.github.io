@@ -732,7 +732,7 @@
 
         .projects-subgrid {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-template-columns: 1fr;
             gap: 16px;
             width: 100%;
             box-sizing: border-box;
@@ -1316,8 +1316,8 @@ Interactive mode active. Click any pill above or run <span class="term-highlight
             <!-- Production Systems Section -->
             <div>
                 <div class="section-header">
-                    <h2 class="section-title">Production Systems &amp; Architecture</h2>
-                    <span style="font-size: 0.72rem; color: var(--text-dim); font-family: 'Fira Code', monospace;">ACTIVE REPOSITORIES &amp; SPECS</span>
+                    <h2 class="section-title">Production Systems</h2>
+                    <span style="font-size: 0.72rem; color: var(--text-dim); font-family: 'Fira Code', monospace;">FEATURED MICROSERVICE SPEC &amp; REPO</span>
                 </div>
 
                 <div class="projects-subgrid">
@@ -1325,83 +1325,27 @@ Interactive mode active. Click any pill above or run <span class="term-highlight
                     <!-- health-api Card -->
                     <a href="./health-api/" class="project-card">
                         <div class="card-top">
-                            <span class="project-badge">DOCKERIZED PRODUCTION MICROSERVICE</span>
-                            <div class="project-title">
-                                <span>health-api</span>
-                                <span class="arrow" style="font-family: 'Fira Code', monospace; font-size: 0.75rem;">SPEC &amp; CONSOLE &rarr;</span>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <span class="project-badge">DOCKERIZED PRODUCTION MICROSERVICE</span>
+                                <span style="font-family: 'Fira Code', monospace; font-size: 0.72rem; color: var(--text-dim);">SPEC &amp; CONSOLE &rarr;</span>
                             </div>
-                            <p class="project-desc">
-                                Hardened HTTP/HTTPS monitoring microservice running in multi-container Docker Compose. Features PostgreSQL persistence, non-root Alpine container isolation, strict SSRF defense blocking RFC 1918 private probing, and automated CI test suites.
+                            <div class="project-title" style="margin-bottom: 8px;">
+                                <span style="font-size: 1.15rem; font-family: 'Fira Code', monospace;">health-api</span>
+                                <span class="arrow" style="font-family: 'Fira Code', monospace; font-size: 0.85rem;">↗</span>
+                            </div>
+                            <p class="project-desc" style="font-size: 0.86rem; line-height: 1.65;">
+                                Hardened HTTP/HTTPS monitoring microservice running in multi-container Docker Compose. Features automated background polling, PostgreSQL persistence, non-root Alpine container isolation, strict SSRF defense blocking RFC 1918 private probing, and automated CI test suites.
                             </p>
                         </div>
-                        <div class="tech-tags">
+                        <div class="tech-tags" style="margin-top: 16px;">
                             <span class="tag">Docker Compose</span>
-                            <span class="tag">PostgreSQL</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">SSRF Defense</span>
-                            <span class="tag">Jest CI</span>
+                            <span class="tag">PostgreSQL 16</span>
+                            <span class="tag">Node.js / Express</span>
+                            <span class="tag">SSRF Defense (RFC 1918)</span>
+                            <span class="tag">Jest CI Automation</span>
+                            <span class="tag">Non-Root Alpine</span>
                         </div>
                     </a>
-
-                    <!-- mr-alj.is-a.dev Card -->
-                    <a href="https://github.com/alirezajafarlou/alirezajafarlou.github.io" class="project-card" target="_blank" rel="noopener">
-                        <div class="card-top">
-                            <span class="project-badge">GITOPS &amp; CDN INFRASTRUCTURE</span>
-                            <div class="project-title">
-                                <span>mr-alj.is-a.dev</span>
-                                <span class="arrow">↗</span>
-                            </div>
-                            <p class="project-desc">
-                                Automated GitOps edge deployment. Upstream registration via open-source PR #61608 on is-a-dev/register, Cloudflare DNS zone automation, automated Let's Encrypt TLS 1.3 lifecycle, and sub-30ms global edge delivery.
-                            </p>
-                        </div>
-                        <div class="tech-tags">
-                            <span class="tag">GitOps</span>
-                            <span class="tag">Cloudflare DNS</span>
-                            <span class="tag">TLS 1.3 ACME</span>
-                            <span class="tag">GitHub Actions</span>
-                        </div>
-                    </a>
-
-                    <!-- Cloud Node & System Hardening -->
-                    <div class="project-card" style="cursor: default;">
-                        <div class="card-top">
-                            <span class="project-badge">CLOUD IAAS &amp; SYSTEM HARDENING</span>
-                            <div class="project-title">
-                                <span>Dedicated Cloud VM (4C / 8GB)</span>
-                                <span class="arrow" style="color: var(--white); font-size: 0.75rem;">PROD</span>
-                            </div>
-                            <p class="project-desc">
-                                Dedicated cloud slice on ArvanCloud IaaS (OpenStack/KVM). Hardened Linux 7.x kernel, non-root sudo privilege separation (`alj`), strict SSH key-based authentication (`authorized_keys`), UFW ingress filtering, and systemd service supervision.
-                            </p>
-                        </div>
-                        <div class="tech-tags">
-                            <span class="tag">OpenStack IaaS</span>
-                            <span class="tag">Linux Kernel</span>
-                            <span class="tag">UFW Hardening</span>
-                            <span class="tag">SSH Security</span>
-                        </div>
-                    </div>
-
-                    <!-- CI/CD Automation Engine -->
-                    <div class="project-card" style="cursor: default;">
-                        <div class="card-top">
-                            <span class="project-badge">CONTINUOUS INTEGRATION &amp; DELIVERY</span>
-                            <div class="project-title">
-                                <span>Automated Delivery Pipelines</span>
-                                <span class="arrow" style="color: var(--white); font-size: 0.75rem;">ACTIVE</span>
-                            </div>
-                            <p class="project-desc">
-                                Production-grade CI/CD automation featuring multi-stage Docker builds, automated test execution, security linting, semantic release tagging, and zero-downtime deployment rollouts.
-                            </p>
-                        </div>
-                        <div class="tech-tags">
-                            <span class="tag">CI/CD Automation</span>
-                            <span class="tag">Docker Buildx</span>
-                            <span class="tag">GitOps</span>
-                            <span class="tag">Bash Scripting</span>
-                        </div>
-                    </div>
 
                 </div>
             </div>
@@ -1570,14 +1514,9 @@ Philosophy : If it's done twice manually, automate it once cleanly. Zero fluff, 
             skills: () => commands.stack(),
 
             projects: () => `[1] <span class="term-highlight">health-api</span> (github.com/alirezajafarlou/health-api)
-    Hardened URL uptime monitoring microservice with PostgreSQL & Docker Compose.
-    Features automated background polling and strict SSRF defenses.
-
-[2] <span class="term-highlight">mr-alj.is-a.dev</span> (github.com/alirezajafarlou/alirezajafarlou.github.io)
-    Automated GitOps edge command center deployed with Cloudflare DNS & TLS 1.3.
-
-[3] <span class="term-highlight">Dedicated Cloud Node</span> (intern-alireza-jafarlou)
-    Hardened 4-core 8GB Ubuntu cloud server on ArvanCloud OpenStack IaaS.`,
+    Hardened URL uptime monitoring microservice running under Docker Compose.
+    Features PostgreSQL persistence, non-root Alpine isolation, and strict RFC 1918 SSRF defenses.
+    Live Spec & Console : https://mr-alj.is-a.dev/health-api/`,
 
             "health-api": () => `<span class="term-highlight">PROJECT SPEC: health-api</span>
 Documentation: https://mr-alj.is-a.dev/health-api/
