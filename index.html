@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alireza Jafarlou | SRE & Cloud Infrastructure Command Deck</title>
-    <meta name="description" content="Alireza Jafarlou - Site Reliability Engineer specializing in Linux systems, Docker microservices, Anycast DNS, and high-availability cloud architecture.">
+    <title>Alireza Jafarlou | DevOps & Cloud Infrastructure Engineer</title>
+    <meta name="description" content="Alireza Jafarlou - DevOps Engineer specializing in CI/CD pipeline automation, Docker containerization, Linux kernel workflows, and high-availability cloud infrastructure.">
     <meta name="theme-color" content="#000000">
     
     <!-- Favicon -->
@@ -12,16 +12,16 @@
     <link rel="apple-touch-icon" href="ALJ-1x-b.jpg">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Alireza Jafarlou | SRE Command Deck">
-    <meta property="og:description" content="Site Reliability & Cloud Infrastructure Engineer. Hardened systems, microservices, and distributed cloud infrastructure.">
+    <meta property="og:title" content="Alireza Jafarlou | DevOps Command Center">
+    <meta property="og:description" content="DevOps & Cloud Infrastructure Engineer. CI/CD automation, Docker microservices, Linux systems, and cloud infrastructure.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mr-alj.loc.cc">
+    <meta property="og:url" content="https://mr-alj.is-a.dev">
     <meta property="og:image" content="ALJ-1x-b.jpg">
 
     <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -115,6 +115,7 @@
             align-items: center;
             gap: 8px;
             text-decoration: none;
+            letter-spacing: -0.02em;
         }
 
         .brand-monogram::before {
@@ -486,6 +487,7 @@
             cursor: pointer;
             transition: all 0.2s;
             font-family: 'Fira Code', monospace;
+            white-space: nowrap;
         }
 
         .quick-cmd-btn:hover {
@@ -496,8 +498,8 @@
 
         .terminal-body {
             padding: 18px;
-            min-height: 220px;
-            max-height: 360px;
+            min-height: 240px;
+            max-height: 380px;
             overflow-y: auto;
             font-size: 0.82rem;
             line-height: 1.6;
@@ -527,7 +529,7 @@
 
         .term-highlight {
             color: var(--white);
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .term-dim {
@@ -598,7 +600,7 @@
 
         .nf-label {
             color: var(--text-dim);
-            width: 65px;
+            width: 72px;
             flex-shrink: 0;
         }
 
@@ -1132,10 +1134,10 @@
     <!-- Top Sticky Command Nav -->
     <header class="navbar">
         <div class="nav-left">
-            <a href="#" class="brand-monogram">ALJ // SRE</a>
+            <a href="#" class="brand-monogram">ALJ // DEVOPS</a>
             <div class="status-pill">
                 <span class="pulse-dot"></span>
-                <span>NODE: EDGE-01 // PRODUCTION</span>
+                <span>STACK: DOCKER // GITOPS // PRODUCTION</span>
             </div>
         </div>
         <div class="nav-right">
@@ -1158,16 +1160,16 @@
                 <div class="avatar-row">
                     <div class="avatar-wrap">
                         <img src="ALJ-1x-b.jpg" alt="ALJ Monogram" class="avatar-logo">
-                        <span class="avatar-badge">SRE</span>
+                        <span class="avatar-badge">DEVOPS</span>
                     </div>
                     <div class="profile-name">
                         <h1>Alireza Jafarlou</h1>
-                        <div class="role-title">Site Reliability & Cloud Infrastructure Engineer</div>
+                        <div class="role-title">DevOps &amp; Cloud Infrastructure Engineer</div>
                     </div>
                 </div>
 
                 <p class="profile-bio">
-                    Engineering high-availability distributed systems, <strong>Linux kernel automation</strong>, <strong>hardened microservices</strong>, and <strong>Anycast edge networks</strong>. Focused on zero-trust fault tolerance.
+                    Automating <strong>CI/CD delivery pipelines</strong>, containerized environments, and cloud infrastructure. Specializing in <strong>Linux automation</strong>, <strong>Docker workflows</strong>, <strong>infrastructure-as-code</strong>, and <strong>zero-downtime shipping</strong>.
                 </p>
 
                 <div class="action-grid">
@@ -1193,49 +1195,51 @@
             <!-- Host Telemetry Card -->
             <div class="card">
                 <div class="dock-section-title">
-                    <span>HOST TELEMETRY</span>
+                    <span>SYSTEM TELEMETRY</span>
                     <span style="color: var(--white);">EDGE-01</span>
                 </div>
 
-                <div class="telemetry-row">
-                    <span class="telemetry-label">OS</span>
-                    <span class="telemetry-val">EndeavourOS x86_64</span>
-                </div>
-                <div class="telemetry-row">
-                    <span class="telemetry-label">Kernel</span>
-                    <span class="telemetry-val">Linux 6.x SRE Hardened</span>
-                </div>
                 <div class="telemetry-row">
                     <span class="telemetry-label">Workstation</span>
                     <span class="telemetry-val">Panasonic Toughbook CF-C2</span>
                 </div>
                 <div class="telemetry-row">
-                    <span class="telemetry-label">DNS Routing</span>
-                    <span class="telemetry-val">Anycast Apex (PowerDNS)</span>
+                    <span class="telemetry-label">OS</span>
+                    <span class="telemetry-val">EndeavourOS (Arch Linux)</span>
                 </div>
                 <div class="telemetry-row">
-                    <span class="telemetry-label">Edge Protocol</span>
-                    <span class="telemetry-val">TLS 1.3 Strict</span>
+                    <span class="telemetry-label">Cloud IaaS</span>
+                    <span class="telemetry-val">ArvanCloud (KVM 4C / 8GB)</span>
+                </div>
+                <div class="telemetry-row">
+                    <span class="telemetry-label">DNS Routing</span>
+                    <span class="telemetry-val">mr-alj.is-a.dev (Cloudflare)</span>
+                </div>
+                <div class="telemetry-row">
+                    <span class="telemetry-label">Edge Security</span>
+                    <span class="telemetry-val">TLS 1.3 (Auto ACME)</span>
                 </div>
             </div>
 
             <!-- Core Stack Card -->
             <div class="card">
                 <div class="dock-section-title">
-                    <span>SRE COMPETENCIES</span>
+                    <span>DEVOPS TOOLCHAIN</span>
                     <span>CORE</span>
                 </div>
                 <div class="stack-wrap">
-                    <span class="stack-pill">Linux Kernel</span>
-                    <span class="stack-pill">systemd</span>
-                    <span class="stack-pill">Bash / Zsh</span>
-                    <span class="stack-pill">Docker Compose</span>
-                    <span class="stack-pill">PostgreSQL</span>
-                    <span class="stack-pill">Anycast DNS</span>
-                    <span class="stack-pill">SSRF Defense</span>
-                    <span class="stack-pill">CI/CD Actions</span>
-                    <span class="stack-pill">High Availability</span>
-                    <span class="stack-pill">SLA / SLO Telemetry</span>
+                    <span class="stack-pill">Docker &amp; Compose</span>
+                    <span class="stack-pill">CI/CD (GitHub Actions)</span>
+                    <span class="stack-pill">Linux Internals</span>
+                    <span class="stack-pill">systemd Automation</span>
+                    <span class="stack-pill">Bash &amp; Zsh</span>
+                    <span class="stack-pill">OpenStack Cloud IaaS</span>
+                    <span class="stack-pill">Nginx Reverse Proxy</span>
+                    <span class="stack-pill">PostgreSQL &amp; Redis</span>
+                    <span class="stack-pill">UFW &amp; Network Hardening</span>
+                    <span class="stack-pill">GitOps Workflows</span>
+                    <span class="stack-pill">Cloudflare &amp; Anycast DNS</span>
+                    <span class="stack-pill">SSRF &amp; Edge Security</span>
                 </div>
             </div>
 
@@ -1244,7 +1248,7 @@
         <!-- Right Column: Command Deck & Showcase -->
         <section class="deck-col">
             
-            <!-- Interactive SRE Terminal -->
+            <!-- Interactive DevOps Terminal -->
             <div class="terminal-deck" id="terminal-deck">
                 <div class="terminal-header">
                     <div class="window-dots">
@@ -1254,8 +1258,9 @@
                     </div>
                     <div class="terminal-quick-actions">
                         <button class="quick-cmd-btn" data-cmd="neofetch">neofetch</button>
-                        <button class="quick-cmd-btn" data-cmd="skills">skills</button>
-                        <button class="quick-cmd-btn" data-cmd="projects">projects</button>
+                        <button class="quick-cmd-btn" data-cmd="docker-ps">docker-ps</button>
+                        <button class="quick-cmd-btn" data-cmd="pipeline">pipeline</button>
+                        <button class="quick-cmd-btn" data-cmd="stack">stack</button>
                         <button class="quick-cmd-btn" data-cmd="health-api">health-api</button>
                         <button class="quick-cmd-btn" data-cmd="clear">clear</button>
                     </div>
@@ -1264,22 +1269,22 @@
                     <div class="term-line">
 <span class="term-dim">┌──(</span><span class="term-prompt">mr_alj㉿toughbook</span><span class="term-dim">)-[</span><span class="term-highlight">~</span><span class="term-dim">]</span>
 <span class="term-dim">└─$</span> <span class="term-cmd">motd</span>
-Welcome to <span class="term-highlight">Alireza Jafarlou's</span> SRE Terminal.
-Click any command pill above or type below. Try <span class="term-highlight">'help'</span> or <span class="term-highlight">'neofetch'</span>.
+Welcome to <span class="term-highlight">Alireza Jafarlou's</span> DevOps Shell.
+Interactive mode active. Click any pill above or run <span class="term-highlight">'docker-ps'</span>, <span class="term-highlight">'pipeline'</span>, or <span class="term-highlight">'neofetch'</span>.
                     </div>
                     <div id="term-history"></div>
                     <div class="terminal-input-row">
                         <span class="term-dim">└─$</span>
-                        <input type="text" id="term-input" class="terminal-input" autocomplete="off" spellcheck="false" placeholder="type command...">
+                        <input type="text" id="term-input" class="terminal-input" autocomplete="off" spellcheck="false" placeholder="type command (e.g. docker-ps, pipeline, help)...">
                     </div>
                 </div>
             </div>
 
-            <!-- Uptime Telemetry Deck -->
+            <!-- Uptime & Infrastructure Telemetry Deck -->
             <div class="uptime-card">
                 <div class="uptime-header">
-                    <div class="section-title">Global Availability & Telemetry</div>
-                    <span style="font-size: 0.72rem; color: var(--text-dim); font-family: 'Fira Code', monospace;">ANYCAST EDGE</span>
+                    <div class="section-title">Continuous Infrastructure &amp; Edge Telemetry</div>
+                    <span style="font-size: 0.72rem; color: var(--text-dim); font-family: 'Fira Code', monospace;">ANYCAST EDGE // PRODUCTION</span>
                 </div>
 
                 <div class="uptime-stats-row">
@@ -1288,22 +1293,22 @@ Click any command pill above or type below. Try <span class="term-highlight">'he
                         <div class="stat-lbl">90-Day Uptime</div>
                     </div>
                     <div class="stat-block">
-                        <div class="stat-num">&lt; 38ms</div>
-                        <div class="stat-lbl">Edge Latency</div>
+                        <div class="stat-num">&lt; 28ms</div>
+                        <div class="stat-lbl">Edge CDN Latency</div>
                     </div>
                     <div class="stat-block">
                         <div class="stat-num">0.00%</div>
-                        <div class="stat-lbl">Packet Loss</div>
+                        <div class="stat-lbl">Deploy Failure Rate</div>
                     </div>
                 </div>
 
-                <div class="uptime-bars-track" id="uptime-track" title="Continuous automated uptime telemetry">
+                <div class="uptime-bars-track" id="uptime-track" title="Continuous automated edge telemetry">
                     <!-- Populated dynamically via JS -->
                 </div>
 
                 <div class="uptime-footer">
                     <span>90 DAYS AGO</span>
-                    <span style="color: var(--white);">ALL SYSTEMS NOMINAL</span>
+                    <span style="color: var(--white);">ALL DEPLOYMENTS OPERATIONAL</span>
                     <span>TODAY</span>
                 </div>
             </div>
@@ -1311,8 +1316,8 @@ Click any command pill above or type below. Try <span class="term-highlight">'he
             <!-- Production Systems Section -->
             <div>
                 <div class="section-header">
-                    <h2 class="section-title">Production Systems & Architecture</h2>
-                    <span style="font-size: 0.72rem; color: var(--text-dim); font-family: 'Fira Code', monospace;">REPOSITORIES & SPECS</span>
+                    <h2 class="section-title">Production Systems &amp; Architecture</h2>
+                    <span style="font-size: 0.72rem; color: var(--text-dim); font-family: 'Fira Code', monospace;">ACTIVE REPOSITORIES &amp; SPECS</span>
                 </div>
 
                 <div class="projects-subgrid">
@@ -1320,13 +1325,13 @@ Click any command pill above or type below. Try <span class="term-highlight">'he
                     <!-- health-api Card -->
                     <a href="./health-api/" class="project-card">
                         <div class="card-top">
-                            <span class="project-badge">ACTIVE PRODUCTION MICROSERVICE</span>
+                            <span class="project-badge">DOCKERIZED PRODUCTION MICROSERVICE</span>
                             <div class="project-title">
                                 <span>health-api</span>
                                 <span class="arrow" style="font-family: 'Fira Code', monospace; font-size: 0.75rem;">SPEC &amp; CONSOLE &rarr;</span>
                             </div>
                             <p class="project-desc">
-                                Hardened HTTP/HTTPS monitoring microservice. Features automated background polling, PostgreSQL persistence, strict SSRF defense blocking RFC 1918 private probing, and automated CI test coverage.
+                                Hardened HTTP/HTTPS monitoring microservice running in multi-container Docker Compose. Features PostgreSQL persistence, non-root Alpine container isolation, strict SSRF defense blocking RFC 1918 private probing, and automated CI test suites.
                             </p>
                         </div>
                         <div class="tech-tags">
@@ -1338,63 +1343,63 @@ Click any command pill above or type below. Try <span class="term-highlight">'he
                         </div>
                     </a>
 
-                    <!-- mr-alj.loc.cc Card -->
+                    <!-- mr-alj.is-a.dev Card -->
                     <a href="https://github.com/alirezajafarlou/alirezajafarlou.github.io" class="project-card" target="_blank" rel="noopener">
                         <div class="card-top">
-                            <span class="project-badge">EDGE INFRASTRUCTURE</span>
+                            <span class="project-badge">GITOPS &amp; CDN INFRASTRUCTURE</span>
                             <div class="project-title">
-                                <span>mr-alj.loc.cc</span>
+                                <span>mr-alj.is-a.dev</span>
                                 <span class="arrow">↗</span>
                             </div>
                             <p class="project-desc">
-                                High-availability apex domain deployed with PowerDNS LUA CNAME flattening, Anycast edge propagation, automated Let's Encrypt TLS 1.3 provisioning, and sub-50ms static edge distribution.
+                                Automated GitOps edge deployment. Upstream registration via open-source PR #61608 on is-a-dev/register, Cloudflare DNS zone automation, automated Let's Encrypt TLS 1.3 lifecycle, and sub-30ms global edge delivery.
                             </p>
                         </div>
                         <div class="tech-tags">
-                            <span class="tag">Anycast DNS</span>
-                            <span class="tag">CNAME Flattening</span>
-                            <span class="tag">TLS 1.3</span>
+                            <span class="tag">GitOps</span>
+                            <span class="tag">Cloudflare DNS</span>
+                            <span class="tag">TLS 1.3 ACME</span>
                             <span class="tag">GitHub Actions</span>
                         </div>
                     </a>
 
-                    <!-- Cloud Architecture Track -->
+                    <!-- Cloud Node & System Hardening -->
                     <div class="project-card" style="cursor: default;">
                         <div class="card-top">
-                            <span class="project-badge">CLOUD SYSTEMS ARCHITECTURE</span>
+                            <span class="project-badge">CLOUD IAAS &amp; SYSTEM HARDENING</span>
                             <div class="project-title">
-                                <span>Distributed Cloud Design</span>
+                                <span>Dedicated Cloud VM (4C / 8GB)</span>
                                 <span class="arrow" style="color: var(--white); font-size: 0.75rem;">PROD</span>
                             </div>
                             <p class="project-desc">
-                                Architecture specifications covering IaaS/PaaS boundaries, Anycast CDN networks, multi-AZ high availability clusters, and Disaster Recovery SLA / SLO modeling (RTO &lt; 15m, RPO &lt; 5m).
+                                Dedicated cloud slice on ArvanCloud IaaS (OpenStack/KVM). Hardened Linux 7.x kernel, non-root sudo privilege separation (`alj`), strict SSH key-based authentication (`authorized_keys`), UFW ingress filtering, and systemd service supervision.
                             </p>
                         </div>
                         <div class="tech-tags">
-                            <span class="tag">IaaS / PaaS</span>
-                            <span class="tag">Anycast CDN</span>
-                            <span class="tag">HA / Multi-AZ</span>
-                            <span class="tag">DR &amp; SLAs</span>
+                            <span class="tag">OpenStack IaaS</span>
+                            <span class="tag">Linux Kernel</span>
+                            <span class="tag">UFW Hardening</span>
+                            <span class="tag">SSH Security</span>
                         </div>
                     </div>
 
-                    <!-- Linux Kernel & System Observability -->
+                    <!-- CI/CD Automation Engine -->
                     <div class="project-card" style="cursor: default;">
                         <div class="card-top">
-                            <span class="project-badge">SYSTEMS OBSERVABILITY</span>
+                            <span class="project-badge">CONTINUOUS INTEGRATION &amp; DELIVERY</span>
                             <div class="project-title">
-                                <span>Linux Infrastructure Telemetry</span>
+                                <span>Automated Delivery Pipelines</span>
                                 <span class="arrow" style="color: var(--white); font-size: 0.75rem;">ACTIVE</span>
                             </div>
                             <p class="project-desc">
-                                Automated systemd daemon management, POSIX resource monitoring, hardened socket hygiene, process isolation, and centralized metric collection pipelines across bare-metal workstations.
+                                Production-grade CI/CD automation featuring multi-stage Docker builds, automated test execution, security linting, semantic release tagging, and zero-downtime deployment rollouts.
                             </p>
                         </div>
                         <div class="tech-tags">
-                            <span class="tag">Linux Kernel</span>
-                            <span class="tag">systemd</span>
-                            <span class="tag">Bash / Zsh</span>
-                            <span class="tag">Telemetry</span>
+                            <span class="tag">CI/CD Automation</span>
+                            <span class="tag">Docker Buildx</span>
+                            <span class="tag">GitOps</span>
+                            <span class="tag">Bash Scripting</span>
                         </div>
                     </div>
 
@@ -1419,17 +1424,25 @@ Click any command pill above or type below. Try <span class="term-highlight">'he
                     <span>Explore health-api Specification</span>
                     <span class="cmd-item-shortcut">/health-api/</span>
                 </div>
-                <div class="cmd-group-label">Terminal Shell Commands</div>
+                <div class="cmd-group-label">DevOps Terminal Commands</div>
                 <div class="cmd-item" data-action="exec-neofetch">
-                    <span>Run neofetch (Host Telemetry)</span>
+                    <span>Run neofetch (Workstation Telemetry)</span>
                     <span class="cmd-item-shortcut">neofetch</span>
                 </div>
-                <div class="cmd-item" data-action="exec-skills">
-                    <span>Inspect SRE Competencies</span>
-                    <span class="cmd-item-shortcut">skills</span>
+                <div class="cmd-item" data-action="exec-docker">
+                    <span>Run docker-ps (Inspect Active Containers)</span>
+                    <span class="cmd-item-shortcut">docker-ps</span>
+                </div>
+                <div class="cmd-item" data-action="exec-pipeline">
+                    <span>Run pipeline (Inspect CI/CD Workflow)</span>
+                    <span class="cmd-item-shortcut">pipeline</span>
+                </div>
+                <div class="cmd-item" data-action="exec-stack">
+                    <span>Inspect DevOps Toolchain &amp; Stack</span>
+                    <span class="cmd-item-shortcut">stack</span>
                 </div>
                 <div class="cmd-item" data-action="exec-whoami">
-                    <span>Display Identity &amp; Trajectory</span>
+                    <span>Display Identity &amp; DevOps Philosophy</span>
                     <span class="cmd-item-shortcut">whoami</span>
                 </div>
                 <div class="cmd-group-label">Communication Channels</div>
@@ -1451,8 +1464,8 @@ Click any command pill above or type below. Try <span class="term-highlight">'he
 
     <!-- Footer -->
     <footer>
-        <div>ALIREZA JAFARLOU &bull; <a href="https://mr-alj.loc.cc">mr-alj.loc.cc</a></div>
-        <div>SRE Command Deck &bull; Pure Vanilla High-Performance Architecture</div>
+        <div>ALIREZA JAFARLOU &bull; <a href="https://mr-alj.is-a.dev">mr-alj.is-a.dev</a></div>
+        <div>DevOps Command Center &bull; Pure Vanilla High-Performance Architecture</div>
     </footer>
 
     <!-- Logic Engine -->
@@ -1481,20 +1494,40 @@ Click any command pill above or type below. Try <span class="term-highlight">'he
         });
 
         const commands = {
-            help: () => `Available diagnostics and shell commands:
-  <span class="term-highlight">whoami</span>       - Display identity, role & focus
-  <span class="term-highlight">neofetch</span>     - SRE system hardware & OS telemetry
-  <span class="term-highlight">skills</span>       - Breakdown of technical competencies
-  <span class="term-highlight">projects</span>     - Production repositories & architectures
+            help: () => `Available DevOps shell diagnostics and commands:
+  <span class="term-highlight">whoami</span>       - Engineer identity, focus & core philosophy
+  <span class="term-highlight">docker-ps</span>    - Inspect active microservice container fleet
+  <span class="term-highlight">pipeline</span>     - Inspect multi-stage CI/CD delivery lifecycle
+  <span class="term-highlight">neofetch</span>     - Host workstation hardware & OS telemetry
+  <span class="term-highlight">stack</span>        - Breakdown of DevOps toolchain & competencies
+  <span class="term-highlight">projects</span>     - Production repositories & architecture specs
   <span class="term-highlight">health-api</span>   - Deep-dive spec of hardened monitoring microservice
-  <span class="term-highlight">contact</span>      - Communication channels
+  <span class="term-highlight">certs</span>        - Inspect edge TLS 1.3 & ACME certificate status
+  <span class="term-highlight">contact</span>      - Direct communication channels
   <span class="term-highlight">clear</span>        - Clear terminal screen buffer`,
 
             whoami: () => `ALIREZA JAFARLOU (mr_alj)
-Role       : Site Reliability & Cloud Infrastructure Engineer
-Location   : Iran
-Focus      : Distributed Systems, High Availability, Linux Kernel, Network Security
-Philosophy : Extreme ownership, deep engineering fundamentals, zero-trust infrastructure.`,
+Role       : DevOps & Cloud Infrastructure Engineer
+Location   : Tehran, Iran
+Focus      : CI/CD Automation, Docker, Linux Internals, Cloud IaaS, Zero-Downtime Deploys
+Philosophy : If it's done twice manually, automate it once cleanly. Zero fluff, 100% reliability.`,
+
+            "docker-ps": () => `<span class="term-highlight">CONTAINER ID   IMAGE                      COMMAND               STATUS         PORTS</span>
+<span class="term-dim">7a91f42c10b8</span>   nginx:alpine               "nginx -g 'daemon…"   Up 14 days     0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp
+<span class="term-dim">d3e802b1f8c1</span>   mr-alj/health-api:latest   "node server.js"      Up 14 days     127.0.0.1:3000->3000/tcp
+<span class="term-dim">f08e1a90c29a</span>   postgres:16-alpine         "docker-entrypoin…"   Up 14 days     127.0.0.1:5432->5432/tcp
+<span class="term-dim">b9a4c17e8821</span>   redis:7-alpine             "docker-entrypoin…"   Up 14 days     127.0.0.1:6379->6379/tcp
+
+<span class="term-dim">Total Containers: 4 running | 0 exited | Isolated Bridge Network: br-prod0</span>`,
+
+            pipeline: () => `<span class="term-highlight">[CI/CD LIFECYCLE: mr-alj Continuous Delivery Engine]</span>
+ ├── <span class="term-highlight">[1] CODE QUALITY</span>     : ESLint, ShellCheck & formatting      [PASSED in 3.8s]
+ ├── <span class="term-highlight">[2] TEST SUITE</span>       : Jest Unit & Integration (health-api) [PASSED in 11.2s]
+ ├── <span class="term-highlight">[3] DOCKER BUILD</span>     : Multi-stage Alpine Buildx & caching  [PASSED in 22.4s]
+ ├── <span class="term-highlight">[4] SECURITY AUDIT</span>   : SSRF validation & Trivy CVE guard    [PASSED in 5.1s]
+ └── <span class="term-highlight">[5] EDGE DEPLOY</span>      : Zero-downtime rolling push to CDN    [LIVE in 2.6s]
+
+<span class="term-dim">Pipeline Result: SUCCESS // All automated gates nominal</span>`,
 
             neofetch: () => `<div class="neofetch-wrapper">
 <div class="neofetch-logo">      /\\
@@ -1509,45 +1542,58 @@ Philosophy : Extreme ownership, deep engineering fundamentals, zero-trust infras
   <div class="neofetch-divider">----------------</div>
   <div class="nf-row"><span class="nf-label">OS</span><span class="nf-val">: EndeavourOS Linux x86_64</span></div>
   <div class="nf-row"><span class="nf-label">Host</span><span class="nf-val">: Panasonic Toughbook CF-C2</span></div>
-  <div class="nf-row"><span class="nf-label">Kernel</span><span class="nf-val">: Linux 6.x SRE Workstation</span></div>
+  <div class="nf-row"><span class="nf-label">Kernel</span><span class="nf-val">: Linux 6.x (Arch Rolling)</span></div>
   <div class="nf-row"><span class="nf-label">Shell</span><span class="nf-val">: zsh 5.9 + Starship</span></div>
-  <div class="nf-row"><span class="nf-label">WM</span><span class="nf-val">: Wayland / Hyprland</span></div>
+  <div class="nf-row"><span class="nf-label">Cloud</span><span class="nf-val">: ArvanCloud IaaS (KVM 4C / 8GB)</span></div>
   <div class="nf-row"><span class="nf-label">Domain</span><span class="nf-val">: mr-alj.is-a.dev</span></div>
-  <div class="nf-row"><span class="nf-label">Status</span><span class="nf-val">: All Services Nominal</span></div>
+  <div class="nf-row"><span class="nf-label">Uptime</span><span class="nf-val">: 99.998% // All nominal</span></div>
 </div>
 </div>`,
 
-            skills: () => `[1] SYSTEMS & HARDENING
-    • Linux Kernel Internals, systemd services, POSIX, Bash/Zsh automation.
-    • Secure network socket management, SSRF mitigation, strict input hygiene.
+            stack: () => `[1] CONTAINERS & RUNTIMES
+    • Docker, Docker Compose multi-stage builds, non-root Alpine isolation.
+    • Resource capping (memory/CPU limits), socket isolation, container health checks.
 
-[2] CONTAINERIZATION & MICROSERVICES
-    • Docker, Docker Compose multi-stage builds, non-root user containers.
-    • PostgreSQL schema architecture, transactional integrity, connection pooling.
+[2] CI/CD & GITOPS AUTOMATION
+    • GitHub Actions, automated test matrices, semantic releases, webhook triggers.
+    • Bash & Zsh scripting, declarative GitOps workflows, zero-downtime rollouts.
 
-[3] CLOUD & DISTRIBUTED NETWORKS
-    • Anycast DNS, CNAME Flattening (PowerDNS LUA), Edge Caching / CDN.
-    • High Availability (HA), Fault Tolerance (FT), RTO/RPO disaster recovery design.
-    • Automated TLS 1.3 / ACME protocol certificate lifecycle management.`,
+[3] LINUX SYSTEMS & CLOUD IAAS
+    • Linux kernel internals, systemd unit management, POSIX compliance.
+    • OpenStack IaaS (Nova compute, Cinder block storage, Neutron overlay SDN).
+    • Server provisioning, user privilege separation, PAM, and UFW firewall hardening.
+
+[4] NETWORKING & EDGE SECURITY
+    • Nginx reverse proxies, Cloudflare Anycast DNS, TLS 1.3 automated ACME renewal.
+    • SSRF defenses (RFC 1918 subnet blacklisting, DNS rebinding guards).`,
+
+            skills: () => commands.stack(),
 
             projects: () => `[1] <span class="term-highlight">health-api</span> (github.com/alirezajafarlou/health-api)
     Hardened URL uptime monitoring microservice with PostgreSQL & Docker Compose.
     Features automated background polling and strict SSRF defenses.
 
-[2] <span class="term-highlight">mr-alj.loc.cc</span> (github.com/alirezajafarlou/alirezajafarlou.github.io)
-    High-availability static edge command center running on Anycast DNS.
+[2] <span class="term-highlight">mr-alj.is-a.dev</span> (github.com/alirezajafarlou/alirezajafarlou.github.io)
+    Automated GitOps edge command center deployed with Cloudflare DNS & TLS 1.3.
 
-[3] <span class="term-highlight">Distributed Cloud Architecture</span>
-    Multi-AZ failover design, Anycast edge routing, and SLA/SLO telemetry.`,
+[3] <span class="term-highlight">Dedicated Cloud Node</span> (intern-alireza-jafarlou)
+    Hardened 4-core 8GB Ubuntu cloud server on ArvanCloud OpenStack IaaS.`,
 
             "health-api": () => `<span class="term-highlight">PROJECT SPEC: health-api</span>
-Documentation: https://mr-alj.loc.cc/health-api/
+Documentation: https://mr-alj.is-a.dev/health-api/
 Repository   : https://github.com/alirezajafarlou/health-api
 Stack        : Node.js, Express, PostgreSQL, Docker Compose, Jest
 Security     : SSRF Filtering (RFC 1918 private IPv4/IPv6 blocking, DNS rebind guard)
 Database     : Normalized schema tracking target URLs, HTTP latency, and status history
 Testing      : Automated integration & unit suites running under Jest in CI
 Deployment   : Single-command reproducible spinup via 'docker compose up -d'`,
+
+            certs: () => `<span class="term-highlight">EDGE CERTIFICATE TELEMETRY</span>
+Domain       : mr-alj.is-a.dev
+Issuer       : Let's Encrypt Authority (ACME automated renewal)
+Protocol     : TLS 1.3 Strict // Cipher: TLS_AES_128_GCM_SHA256
+HSTS         : max-age=31536000; includeSubDomains; preload
+Status       : Active & Valid (Zero SSL Warnings)`,
 
             contact: () => `Direct Communication Channels:
   • Telegram : <span class="term-highlight">https://t.me/alirezajafarlouwork</span>
@@ -1690,8 +1736,12 @@ Deployment   : Single-command reproducible spinup via 'docker compose up -d'`,
                 window.location.href = './health-api/';
             } else if (action === 'exec-neofetch') {
                 executeCommand('neofetch');
-            } else if (action === 'exec-skills') {
-                executeCommand('skills');
+            } else if (action === 'exec-docker') {
+                executeCommand('docker-ps');
+            } else if (action === 'exec-pipeline') {
+                executeCommand('pipeline');
+            } else if (action === 'exec-stack') {
+                executeCommand('stack');
             } else if (action === 'exec-whoami') {
                 executeCommand('whoami');
             } else if (action === 'open-github') {
