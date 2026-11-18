@@ -68,6 +68,7 @@ xdg-open http://localhost:8000
 * **Telegram:** [@alirezajafarlouwork](https://t.me/alirezajafarlouwork)
 * **LinkedIn:** [alirezajafarlou](https://linkedin.com/in/alirezajafarlou)
 * **Email:** [alirezajafarlou.work@gmail.com](mailto:alirezajafarlou.work@gmail.com)
+* **Phone:** [+98 922 8358 243](tel:+989228358243)
 
 ---
 
